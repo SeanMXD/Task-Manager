@@ -1,16 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'
 
-import { TaskManagerComponent } from './task-manager.component';
+import { TaskManagerComponent } from './components/task-manager/task-manager.component';
+import { CategoryComponent } from './components/category/category.component';
+import { TaskComponent } from './components/task/task.component';
+
+
+import { Observable } from 'rxjs';
+import { CategoriesService } from './services/categories/categories.service';
 
 @NgModule({
   declarations: [
-    TaskManagerComponent
+    TaskManagerComponent,
+    CategoryComponent,
+    TaskComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CategoriesService
+  ],
   bootstrap: [TaskManagerComponent]
 })
-export class TaskManagerModule { }
+export class TaskManagerModule {}

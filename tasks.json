@@ -1,8 +1,12 @@
 {
-  "tasks": [
+  "categories": [
     {
-      "categories": [],
-      "id": 1
+      "name": "Uncategorized",
+      "tasks": [
+        {
+          
+        }
+      ]
     }
   ]
 }

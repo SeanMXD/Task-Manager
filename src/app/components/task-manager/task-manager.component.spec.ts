@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { TaskManagerComponent } from './task-manager.component';
 
-describe('AppComponent', () => {
+describe('TaskManagerComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
