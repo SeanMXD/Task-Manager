@@ -1,3 +1,11 @@
 <div class="container">
-  <app-category *ngFor="let category of categories"></app-category>
+  <div (click)="this.getCategories()" id="refresh-button">Refresh</div>
+  <app-category *ngFor="let category of categories" [category]=category></app-category>
+  <form class="form">
+    <div class="form-group">
+      <input type="text" class="form-control" id="name" placeholder="Name" required/>
+    </div>
+    <button type="submit" class="btn btn-success">Add Category</button>
+  </form>
 </div>
+

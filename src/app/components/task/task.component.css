@@ -1,0 +1,19 @@
+.task {
+    background-color: lightgray;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: center;
+
+}
+
+.task div button {
+    margin: 2px;
+}
+
+.description {
+    align-self: center;
+    font-size: x-large;
+}

@@ -2,9 +2,11 @@
   "categories": [
     {
       "name": "Uncategorized",
+      "id": 0,
       "tasks": [
         {
-          
+          "description": "Default task",
+          "id": 0
         }
       ]
     }

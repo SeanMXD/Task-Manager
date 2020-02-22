@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../models/category/category';
-
-import { CategoriesService } from '../../services/categories/categories.service';
+import { HttpClient } from '@angular/common/http';
+import { Task } from 'src/app/models/task/task';
 
 @Component({
   selector: 'app-task-manager',
@@ -10,14 +10,20 @@ import { CategoriesService } from '../../services/categories/categories.service'
 })
 export class TaskManagerComponent implements OnInit {
   public categories: Category[];
-  
-  private categoriesDataService: CategoriesService;
-
-  constructor(private categoriesService: CategoriesService){
-    this.categoriesDataService = categoriesService;
-  }
+  public newCategory = new Category;
+  private categoriesRoute: string = "http://localhost:3000/categories";
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.categories = this.categoriesDataService.categories;
+    this.getCategories()
+  }
+
+  getCategories() {
+    this.http.get<Category[]>(this.categoriesRoute).subscribe(data => this.categories = data)
+    console.log(this.categories)
+  }
+
+  addCategory(category: Category) {
+    this.http.post(this.categoriesRoute, category).subscribe(data => this.getCategories())
   }
 }

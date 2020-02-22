@@ -8,7 +8,6 @@ import { TaskComponent } from './components/task/task.component';
 
 
 import { Observable } from 'rxjs';
-import { CategoriesService } from './services/categories/categories.service';
 
 @NgModule({
   declarations: [
@@ -19,9 +18,6 @@ import { CategoriesService } from './services/categories/categories.service';
   imports: [
     BrowserModule,
     HttpClientModule
-  ],
-  providers: [
-    CategoriesService
   ],
   bootstrap: [TaskManagerComponent]
 })
