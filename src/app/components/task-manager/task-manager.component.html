@@ -1,12 +1,12 @@
 <div class="container">
-  <div (click)="this.getCategories()" id="refresh-button">Refresh</div>
-  <app-category *ngFor="let category of categories" [category]=category (categoryDeleted)="onCategoryDeleted($event)"></app-category>
+  <div (click)="this.getTasks()" id="refresh-button">Task Manager</div>
+  <app-task *ngFor="let task of tasks" [task]=task (taskDeleted)="onTaskDeleted($event)"></app-task>
 
-  <form class="form" [formGroup]="formGroup" (ngSubmit)="addCategory(formGroup.value)">
+  <form class="form" [formGroup]="formGroup" (ngSubmit)="addTask(formGroup.value)">
     <div class="form-group">
-      <input type="text" class="form-control" formControlName="name" placeholder="Name" required/>
+      <input type="text" class="form-control" formControlName="description" placeholder="Description" required/>
     </div>
-    <button type="submit" class="btn btn-success">Add Category</button>
+    <button type="submit" class="btn btn-success">Add Task</button>
   </form>
 
 </div>

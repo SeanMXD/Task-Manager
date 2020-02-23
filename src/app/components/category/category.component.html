@@ -1,5 +1,0 @@
-<div class="category">
-    <h1>{{category.name}}</h1>
-    <app-task *ngFor="let task of category.tasks" [task]=task (taskDeleted)="onTaskDeleted($event)"></app-task>
-    <button (click)="onClickDelete()">Delete</button>
-</div>
