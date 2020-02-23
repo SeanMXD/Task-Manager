@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../models/category/category';
 import { HttpClient } from '@angular/common/http';
-import { Task } from 'src/app/models/task/task';
+import { FormBuilder } from '@angular/forms'
 
 @Component({
   selector: 'app-task-manager',
@@ -10,9 +10,21 @@ import { Task } from 'src/app/models/task/task';
 })
 export class TaskManagerComponent implements OnInit {
   public categories: Category[];
+  private categoriesRoute: string = "http://localhost:3000/categories/";
+  public formGroup;
   public newCategory = new Category;
-  private categoriesRoute: string = "http://localhost:3000/categories";
-  constructor(private http: HttpClient) {}
+
+  constructor(
+    private http: HttpClient,
+    private formBuilder: FormBuilder
+    ) {
+      this.formGroup = this.formBuilder.group({name: '', tasks: null, id: null})
+    }
+    
+  addCategory(values) {
+    values.tasks = []
+    this.http.post(this.categoriesRoute, values).subscribe(data => this.getCategories())
+  }
 
   ngOnInit() {
     this.getCategories()
@@ -20,10 +32,10 @@ export class TaskManagerComponent implements OnInit {
 
   getCategories() {
     this.http.get<Category[]>(this.categoriesRoute).subscribe(data => this.categories = data)
-    console.log(this.categories)
   }
 
-  addCategory(category: Category) {
-    this.http.post(this.categoriesRoute, category).subscribe(data => this.getCategories())
+
+  onCategoryDeleted(event) {
+    this.http.delete(this.categoriesRoute+event).subscribe(response => this.getCategories())
   }
 }

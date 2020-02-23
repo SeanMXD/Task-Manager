@@ -1,11 +1,13 @@
 <div class="container">
   <div (click)="this.getCategories()" id="refresh-button">Refresh</div>
-  <app-category *ngFor="let category of categories" [category]=category></app-category>
-  <form class="form">
+  <app-category *ngFor="let category of categories" [category]=category (categoryDeleted)="onCategoryDeleted($event)"></app-category>
+
+  <form class="form" [formGroup]="formGroup" (ngSubmit)="addCategory(formGroup.value)">
     <div class="form-group">
-      <input type="text" class="form-control" id="name" placeholder="Name" required/>
+      <input type="text" class="form-control" formControlName="name" placeholder="Name" required/>
     </div>
     <button type="submit" class="btn btn-success">Add Category</button>
   </form>
+
 </div>
 

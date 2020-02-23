@@ -1,14 +1,14 @@
 {
   "categories": [
     {
-      "name": "Uncategorized",
-      "id": 0,
+      "name": "Test",
       "tasks": [
         {
-          "description": "Default task",
-          "id": 0
+          "description": "Description",
+          "id": 1
         }
-      ]
+      ],
+      "id": 1
     }
   ]
 }

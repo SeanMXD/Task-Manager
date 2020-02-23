@@ -1,13 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TaskManagerComponent } from './components/task-manager/task-manager.component';
 import { CategoryComponent } from './components/category/category.component';
 import { TaskComponent } from './components/task/task.component';
-
-
-import { Observable } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -17,8 +15,10 @@ import { Observable } from 'rxjs';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  bootstrap: [TaskManagerComponent]
+  bootstrap: [TaskManagerComponent],
 })
 export class TaskManagerModule {}
